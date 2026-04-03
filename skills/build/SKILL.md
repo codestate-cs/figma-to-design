@@ -60,6 +60,35 @@ Wait for answers before proceeding. Do not assume defaults for any unanswered qu
 2. **Figma screenshot(s)** — Use Figma MCP to get a screenshot of each viewport. **CRITICAL: Hold these screenshots in context for the entire session. You need them for every comparison round. Do not discard them.**
 3. **Target file context** — If slotting into an existing file, read it first. If it's a new file, read neighboring files to understand patterns (imports, layout conventions, naming).
 
+### 1.5 — Library Check
+
+After loading the Figma design context, identify what the design requires (e.g., charts, maps, date pickers, carousels, rich text editors, drag-and-drop, animations, icons, etc.).
+
+**Step 1: Check installed packages.**
+Read `package.json` dependencies and devDependencies. For each capability the design needs, check if a relevant library is already installed.
+
+Examples:
+- Charts → `recharts`, `chart.js`, `@nivo/*`, `victory`, `d3`
+- Maps → `react-map-gl`, `@react-google-maps/api`, `leaflet`
+- Date pickers → `react-datepicker`, `@mui/x-date-pickers`, `react-day-picker`
+- Carousels → `swiper`, `embla-carousel-react`, `keen-slider`
+- Animations → `framer-motion`, `react-spring`, `@react-spring/web`
+- Icons → `lucide-react`, `react-icons`, `@heroicons/react`
+- Tables → `@tanstack/react-table`, `ag-grid-react`
+
+**If a library is installed → use it.** Never rebuild from scratch what a project dependency already provides.
+
+**Step 2: If no matching library is installed**, search for well-known options available for that capability. Present the user with 2-3 options and a recommendation:
+
+> "The design includes [charts/maps/etc.] but no library is installed for this. Here are the options:
+> 1. **[Library A]** — [one-line why]. **(Recommended)**
+> 2. **[Library B]** — [one-line why].
+> 3. **Build from scratch** — Only if the requirement is simple enough.
+>
+> Which would you like?"
+
+Always recommend the option that best fits the project's existing stack and complexity. Wait for the user's choice before proceeding. Install the chosen library before generating code.
+
 ---
 
 ## Phase 2: Generate Code
