@@ -1,5 +1,5 @@
 ---
-name: build
+name: figma-to-design-build
 description: Build production-ready Next.js/React code from a Figma design. Pulls design context and screenshots from Figma, generates code using your project's tokens and conventions, then visually verifies and iterates using Playwright screenshots until the result matches the design. Requires /figma-to-design-init to have been run first.
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep, mcp__figma
 ---

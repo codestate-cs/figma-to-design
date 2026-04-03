@@ -1,5 +1,5 @@
 ---
-name: init
+name: figma-to-design-init
 description: Initialize the design-to-code workflow. Scans your codebase for styling patterns, extracts design tokens, discovers reusable components, and generates a design-tokens.json file. Run this once per project before using /figma-to-design-build.
 allowed-tools: Read, Write, Edit, Bash, Glob, Grep
 ---
