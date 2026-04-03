@@ -1,0 +1,26 @@
+{
+  "name": "figma-to-design",
+  "owner": {
+    "name": "Karthik Chinasani"
+  },
+  "metadata": {
+    "description": "Design-aware iterative code generation from Figma to production-ready Next.js/React.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "figma-to-design",
+      "source": ".",
+      "description": "Generates design tokens from your codebase, pulls Figma designs via MCP, generates code matching your project conventions, and visually verifies output via Playwright screenshot comparison.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Karthik Chinasani"
+      },
+      "homepage": "https://github.com/karthikchinasani/figma-to-design",
+      "repository": "https://github.com/karthikchinasani/figma-to-design",
+      "license": "MIT",
+      "keywords": ["figma", "design", "react", "nextjs", "code-generation"],
+      "category": "productivity"
+    }
+  ]
+}
