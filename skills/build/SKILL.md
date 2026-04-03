@@ -28,20 +28,21 @@ If the user provided a URL with their initial prompt (e.g., `/figma-to-design:bu
 ### 1.1b — Dry Run Check
 If the user includes "dry run" in their prompt or $ARGUMENTS, complete Phases 1 and 2 but do NOT write any files. Instead, present the plan: which files would be created/modified, which existing components would be reused, and the code structure. Ask the user to confirm before proceeding to write files and run the verification loop.
 
-### 1.2 — Ask About Viewports
-Ask: **"Does this design have multiple viewport versions (desktop, tablet, mobile)? If yes, please share the Figma URL for each."**
+### 1.2 — Standard Intake Questions
 
-- If yes → collect all viewport URLs
-- If no → proceed with the single design
+Always ask the following questions in a single message. If the user already answered any of these in their prompt or $ARGUMENTS, pre-fill those and only ask the remaining ones.
 
-### 1.3 — Get the Prompt
-Ask the user to describe:
-- What this design is (page, section, component)
-- Where it should live in the codebase (file path or general area)
-- Any behavioral details (interactivity, state, data flow)
-- Which existing components to reuse (or "use what makes sense")
+**Ask all of these every time:**
 
-If the user already provided this with $ARGUMENTS, don't re-ask.
+1. **What is this?** — Page, section, or component?
+2. **Where should it live?** — File path (e.g., `app/dashboard/page.tsx`) or general area (e.g., "dashboard route")
+3. **Functional or visual-only?**
+   - **Fully functional**: Real interactivity, state management, working forms, navigation, etc.
+   - **Visual only**: Placeholder data, no real logic, just matches the design visually
+4. **Viewports?** — Desktop only, or multiple (desktop/tablet/mobile)? If multiple, share the Figma URL for each.
+5. **Components to reuse?** — Name specific existing components, or say "use what makes sense"
+
+Wait for answers before proceeding. Do not assume defaults for any unanswered question.
 
 ### 1.4 — Load Design Context
 1. **Figma design context** — Use Figma MCP to pull design context and implementation details from the provided URL(s). Get layout, spacing, colors, typography, and component structure.
@@ -75,7 +76,7 @@ If the user already provided this with $ARGUMENTS, don't re-ask.
 
 **File Structure:**
 - Follow the existing project structure exactly. Check where pages, components, and hooks live and put new files in the same places.
-- One component per file unless sub-components are tightly coupled and only used together.
+- **Strict one-component-per-file rule**: Each component gets its own file. The only exception is a sub-component that is 15 lines or fewer — it may stay in the parent file. Anything over 15 lines must be extracted to a separate file, imported, and used.
 - Export with proper TypeScript types for all props.
 
 ### Generation Rules
