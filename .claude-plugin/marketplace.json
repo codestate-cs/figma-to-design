@@ -16,8 +16,8 @@
       "author": {
         "name": "Karthik Chinasani"
       },
-      "homepage": "https://github.com/karthikchinasani/figma-to-design",
-      "repository": "https://github.com/karthikchinasani/figma-to-design",
+      "homepage": "https://github.com/codestate-cs/figma-to-design",
+      "repository": "https://github.com/codestate-cs/figma-to-design",
       "license": "MIT",
       "keywords": ["figma", "design", "react", "nextjs", "code-generation"],
       "category": "productivity"

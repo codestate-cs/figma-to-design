@@ -42,14 +42,14 @@ Claude Code commands that turn Figma designs into production-ready Next.js/React
 ### Option A: Claude Code plugin (recommended)
 
 ```
-/plugin marketplace add karthikchinasani/figma-to-design
+/plugin marketplace add codestate-cs/figma-to-design
 /plugin install figma-to-design
 ```
 
 ### Option B: npx skills add
 
 ```bash
-npx skills add karthikchinasani/figma-to-design
+npx skills add codestate-cs/figma-to-design
 ```
 
 Works across Claude Code, Cursor, Codex, and other agents that support the [Agent Skills](https://agentskills.io) standard.
@@ -57,7 +57,7 @@ Works across Claude Code, Cursor, Codex, and other agents that support the [Agen
 ### Option C: Manual install
 
 ```bash
-git clone https://github.com/karthikchinasani/figma-to-design.git
+git clone https://github.com/codestate-cs/figma-to-design.git
 cd figma-to-design
 ./install.sh
 ```
