@@ -16,6 +16,17 @@ Before anything else:
 1. Check that `design-tokens.json` exists at the project root. If it doesn't, tell the user to run `/figma-to-design-init` first and stop.
 2. Read `design-tokens.json` fully into your context. This is your source of truth for tokens, styling approach, and existing components.
 
+## Design System Rules — Enforced at All Times
+
+These rules apply to ALL code generated or modified during this build. No exceptions.
+
+- All colors, spacing, font sizes, shadows, and border radii must come from `design-tokens.json`. Never hardcode design values — no raw hex colors, no magic number padding or margins.
+- Use the project's styling approach as specified in `styling_approach`.
+- Check the `components` section before creating any new component — reuse what exists.
+- If a UI pattern appears more than once, extract it into a reusable component. New components must be props-driven with no hardcoded content.
+- **SOLID**: One component = one job. Extend via props, not source modification. Don't bloat props. Depend on props and hooks, not concrete implementations.
+- **DRY**: Shared logic → custom hooks. Shared layout → layout components. Shared styles → design tokens. No copy-paste between components.
+
 ---
 
 ## Phase 1: Gather Inputs
